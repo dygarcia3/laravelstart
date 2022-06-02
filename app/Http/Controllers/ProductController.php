@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use App\Models\Product;
@@ -17,6 +19,12 @@ class ProductController extends Controller
         $products = Product::all();
 
         return view('products.index', compact('products'));
+    }
+
+    public function findByName(string $name)
+    {
+        $product = Product::where('name', '=', $name)->get();
+        return response()->json($product);
     }
 
     /**

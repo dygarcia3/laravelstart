@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 
 Route::resource('/products', 'ProductController');
+
+Route::get('/products/buscar/{nombre}', 'ProductController@findByName');
